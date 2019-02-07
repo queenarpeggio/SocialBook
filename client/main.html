@@ -1,10 +1,12 @@
 <head>
-  <title>SocialBook</title>
+  
 </head>
 
 <body>
+	<title>SocialBook</title>
   <div class="container">
   <h1 class="display-1" align="center">Social Book</h1>
+  {{> addProfile}}
   {{> profile}}
   </div>
 </body>
@@ -24,10 +26,56 @@
     </div>
     <div class="row justify-content-around">
     <div class="col-6 text-center">
-      <button type="button" class="btn btn-success js-like">Like</button>
+      <button type="button" class="btn btn-success btn-lg js-like">Like</button>
     </div>
     <div class="col-6 text-center">
-      <button type="button" class="btn btn-danger js-dislike">Dislike</button>
+      <button type="button" class="btn btn-danger btn-lg js-dislike">Dislike</button>
+  </div>
+</div>
+</template>
+
+<template name="addProfile">
+	<!-- Button trigger modal -->
+<button type="button" class="btn btn-lg btn-info" data-toggle="modal" data-target="#exampleModal">
+  Add Friend
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">친구?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">First Name</span>
+  </div>
+  <input type="text" name="firstName" class="form-control" placeholder="Barely" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+      
+      <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Last Name</span>
+  </div>
+  <input type="text" name="lastName" class="form-control" placeholder="Here" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Profile Image</span>
+  </div>
+  <input type="text" name="profileImage" class="form-control" placeholder="inasquare.jpg" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-lg btn-success js-saveProfile">Add</button>
+      </div>
+    </div>
   </div>
 </div>
 </template>
