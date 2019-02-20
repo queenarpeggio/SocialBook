@@ -5,8 +5,8 @@ import './main.html';
 import '../lib/collections.js';
 
 Template.profile.helpers({
-  proffname(){
-    return userDB.findOne({}).firstName;
+  profAll(){
+    return userDB.find({});
   }
 })
 Template.profile.events({
@@ -15,7 +15,14 @@ Template.profile.events({
   },
   'click .js-dislike'(event, instance){
   	alert("Dislike!? :'(");  
-  } 
+  }, 
+  'click .js-delete'(event, instance){
+    var profID = this._id
+    $("#" + profID).fadeOut("slow","swing", function (){
+      userDB.remove({_id: profID});  
+    });
+    
+  },
 });
 
 
@@ -31,7 +38,7 @@ Template.addProfile.events({
 	$("#exampleModal input[name='firstName']").val('');
 	$("#exampleModal input[name='lastName']").val('');
 	$("#exampleModal input[name='profileImage']").val('');
-
+  
   	$("#exampleModal").modal("hide");
     userDB.insert({'firstName':fname,
         'lastName':lname, 'img':profilepic});

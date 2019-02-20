@@ -7,31 +7,43 @@
   <div class="container">
   <h1 class="display-1" align="center">Social Book</h1>
   {{> addProfile}}
-  {{> profile}}
+  <div class="row">
+    {{> profile}}
   </div>
+</div>
 </body>
 
 
 <template name="profile">
-  
+  {{#each profAll}}
+  <div id={{_id}} class="col-4 justify-content-around">
+    <div class="row justify-content-end">
+      <div class="col-1">
+        <i class="zmdi zmdi-delete zmdi-hc-2x js-delete"></i>
+      </div>
+    </div>
     <div class="row">
-      <div class="col">
+      
+      <div class="col-sm">
         <img src="anonymous-online.jpg" class="rounded mx-auto d-block" alt="">        
       </div>      
-    </div>
-    <div class="row justify-content-around">
-      <div class="col-7">
-        <p class="display-4" align="center">{{proffname}}</p>
+    </div> 
+    <div class="row">
+      <div class="col-sm">
+        <p class="display-4" align="center">{{firstName}}&nbsp; 
+        {{lastName}}</p>
         </div>
     </div>
-    <div class="row justify-content-around">
-    <div class="col-6 text-center">
+    <div class="row">
+    <div class="col-sm text-center">
       <button type="button" class="btn btn-success btn-lg js-like">Like</button>
     </div>
     <div class="col-6 text-center">
       <button type="button" class="btn btn-danger btn-lg js-dislike">Dislike</button>
   </div>
 </div>
+</div>
+{{/each}}
 </template>
 
 <template name="addProfile">
