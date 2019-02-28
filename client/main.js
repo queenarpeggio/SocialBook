@@ -27,9 +27,16 @@ var numDislikes = userDB.findOne({_id: profID}).dislike;
 if(!numDislikes) {
   numDislikes = 0;
 }
+userDB.update({_id:profID}, {$set:{'dislike': numDislikes + 1}})
 console.log("You have", numDislikes);
-    userDB.update({_id:profID}, {$set:{'dislike': numDislikes + 1}})  
+      
   }, 
+
+  'click.js-profedit'(event, instance){
+    $("#editmodal").modal('show');
+    console.log("open modal");
+  },
+
   'click .js-delete'(event, instance){
     var profID = this._id
     $("#" + profID).fadeOut("slow","swing", function (){
@@ -61,3 +68,7 @@ Template.addProfile.events({
   },
 
 });
+
+Template.viewProfile.events({
+
+})
