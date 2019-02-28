@@ -44,15 +44,27 @@ console.log("You have", numDislikes);
     });
     
   },
+  'click .js-viewProfile'(event, instance){
+  var uID = this._id;
+  var Likes = userDB.findOne({_id:uID}).like;
+  
+  console.log(uID);
+  $('#userId').val(uID);
+
+  $('#profileImage').attr('scr',userDB.findOne({_id:uID}).img);
+  $('#likes').html(Likes);
+  $('#first').text(userDB.findOne({_id:uID}).firstName);
+  $('#last').text(userDB.findOne({_id:uID}).lastName);
+}
 });
 
 
 
 Template.addProfile.events({
 'click .js-saveProfile'(event, instance){
-	var fname = $("#exampleModal input[name='firstName']").val();
-	var lname = $("#exampleModal input[name='lastName']").val();
-	var profilepic = $("#exampleModal input[name='profileImage']").val();
+	var fname = $("#addUserModal input[name='firstName']").val();
+	var lname = $("#addUserModal input[name='lastName']").val();
+	var profilepic = $("#addUserModal input[name='profileImage']").val();
 	console.log("The name is",fname, lname);
 	console.log(profilepic);
 
@@ -68,7 +80,3 @@ Template.addProfile.events({
   },
 
 });
-
-Template.viewProfile.events({
-
-})

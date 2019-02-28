@@ -39,7 +39,7 @@
       <button type="button" class="btn btn-danger btn-lg js-dislike">Dislike</button>
       </div>
       <div class="col text-center">
-        <button type="button" class="btn btn-outline-info btn-lg" data-toggle="modal" data-target="#viewModal">
+        <button type="button" class="btn btn-outline-info btn-lg js-viewProfile" data-toggle="modal" data-target="#viewModal">
   View Profile
 </button>
       </div>
@@ -105,7 +105,7 @@
       <div class="modal-header">
         <div class="row justify-content-end">
       <div class="col-1">
-        <i class="zmdi zmdi-edit zmdi-hc-2x js-profedit justify-right"></i>
+        <i class="zmdi zmdi-edit zmdi-hc-2x js-profedit"></i>
       </div>
       <div class="col-1">
         <i class="zmdi zmdi-delete zmdi-hc-2x js-delete"></i>
@@ -118,9 +118,19 @@
         </button>
       </div>
       <div class="modal-body">
-      <div class="col-sm">
-        <img src="anonymous-online.jpg" class="rounded mx-auto d-block" alt="">        
-      </div>     
+        <input id="userId" type="hidden">
+        <div class="row">
+      <div class="col-6">
+        <img id="profileImage" src="anonymous-online.jpg" class="rounded"  alt="">        
+      </div>
+
+      <div class="col">
+        <h5 id="first"></h5>
+        <h5 id="last"></h5>
+        <p id="likes"></p>
+        
+      </div> 
+    </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark btn-lg" data-dismiss="modal">Close</button>
